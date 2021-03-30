@@ -123,6 +123,15 @@ input {
   background: #fed59a;
   border-radius: 0.25rem;
   padding: 1rem;
+  opacity: 0.7;
+}
+
+#taks-container li:hover {
+  opacity: 1;
+}
+
+li img {
+  cursor: pointer;
 }
 
 /*Footer*/
