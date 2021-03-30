@@ -1,0 +1,132 @@
+/*--------Global--------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 93.75%; /*15px*/
+}
+
+body {
+  background: #f0f2f5;
+  font-family: "Patrick Hand", cursive;
+}
+
+h2 {
+  color: #000;
+  font-weight: 400;
+  margin-top: 3rem;
+  margin-bottom: 0.8rem;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+input:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+img {
+  height: 30px;
+  padding: 0.2rem;
+}
+
+li {
+  list-style: none;
+}
+
+/*--------Header--------*/
+header {
+  background: #eead2d;
+  padding: 2rem 0 3rem;
+  text-align: center;
+}
+
+#logo {
+  color: #000;
+  font-weight: 100;
+}
+
+/*--------Container--------*/
+.container {
+  width: min(90vw, 500px);
+  margin: auto;
+}
+
+/*--------Main--------*/
+
+/*--------Search--------*/
+#search-tasks {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.search-group {
+  background: #fff;
+  width: auto;
+  margin: auto;
+  border-radius: 0.25rem;
+  padding: 0.4rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+input {
+  background: #fff;
+  border: none;
+  width: 90%;
+  margin: 1px 10px;
+  font-size: 1.3rem;
+  font-family: "Patrick Hand", cursive;
+  font-weight: 100;
+}
+
+/*--------Add task--------*/
+#add-tasks {
+  text-align: center;
+}
+
+.add-task-group {
+  background: #fff;
+  width: auto;
+  margin: auto;
+  border-radius: 0.25rem;
+  padding: 0.4rem;
+}
+
+/*Tasks container*/
+#tasks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+}
+
+#taks-container {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#taks-container li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.1rem;
+  background: #fed59a;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+/*Footer*/
+footer {
+  text-align: center;
+  margin-top: 5rem;
+}
