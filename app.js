@@ -1,5 +1,6 @@
 const formAddTask = document.querySelector("#form-add-task");
-const tasksContainer = document.querySelector("#taks-container");
+const tasksContainer = document.querySelector(".taks-container");
+const searchTasks = document.querySelector(".search-tasks-container input");
 
 formAddTask.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -22,4 +23,19 @@ tasksContainer.addEventListener("click", (event) => {
   if (Array.from(clickedElement.classList).includes("delete")) {
     clickedElement.parentElement.remove();
   }
+});
+
+searchTasks.addEventListener("input", (event) => {
+  const valueSearchTask = event.target.value.trim().toLowerCase();
+
+  Array.from(tasksContainer.children)
+    .filter((todo) => !todo.textContent.toLowerCase().includes(valueSearchTask))
+    .forEach((todo) => {
+      todo.classList.add("invisible");
+    });
+  Array.from(tasksContainer.children)
+    .filter((todo) => todo.textContent.toLowerCase().includes(valueSearchTask))
+    .forEach((todo) => {
+      todo.classList.remove("invisible");
+    });
 });
