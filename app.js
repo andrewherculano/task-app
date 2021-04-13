@@ -2,38 +2,52 @@ const formAddTask = document.querySelector("#form-add-task");
 const tasksContainer = document.querySelector(".taks-container");
 const searchTasks = document.querySelector(".search-tasks-container input");
 
-formAddTask.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const valueAddTask = event.target.addtask.value.trim();
-
+//*** Adicionar Tarefas ***
+const addTask = (valueAddTask) => {
   if (valueAddTask.length) {
     tasksContainer.innerHTML += `
-  <li>
+  <li data-todo="${valueAddTask}">
     <h3>${valueAddTask}</h3>
-    <img class="delete" src="./assets/delete.svg" alt="">
+    <img class="delete" src="./assets/delete.svg" alt="Deletar tarefa" data-trash="${valueAddTask}">
   </li>`;
 
     event.target.reset();
   }
+};
+
+formAddTask.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const valueAddTask = event.target.addtask.value.trim();
+
+  addTask(valueAddTask);
 });
+
+//*** Remover Tarefas ***
+const removeTask = (clickedElement) => {
+  const trashDataValue = clickedElement.dataset.trash;
+  const dataTask = document.querySelector(`[data-todo="${trashDataValue}"]`);
+
+  if (trashDataValue) {
+    dataTask.remove();
+  }
+};
 
 tasksContainer.addEventListener("click", (event) => {
   const clickedElement = event.target;
-
-  if (Array.from(clickedElement.classList).includes("delete")) {
-    clickedElement.parentElement.remove();
-  }
+  removeTask(clickedElement);
 });
 
+//*** Buscar Tarefas ***
 searchTasks.addEventListener("input", (event) => {
   const valueSearchTask = event.target.value.trim().toLowerCase();
+  const arrayTasks = Array.from(tasksContainer.children);
 
-  Array.from(tasksContainer.children)
+  arrayTasks
     .filter((todo) => !todo.textContent.toLowerCase().includes(valueSearchTask))
     .forEach((todo) => {
       todo.classList.add("invisible");
     });
-  Array.from(tasksContainer.children)
+  arrayTasks
     .filter((todo) => todo.textContent.toLowerCase().includes(valueSearchTask))
     .forEach((todo) => {
       todo.classList.remove("invisible");
